@@ -7,7 +7,6 @@ import { Container } from '../../components/Container/Container';
 import { Row } from '../../components/Row/Row';
 import { List } from '../../components/List/List';
 
-import { Link } from 'react-router-dom';
 
 const listItems = [
   'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, ut.',
@@ -28,11 +27,6 @@ export const HomePage = () => {
               <ListItem key={index} num={index + 1} text={item} />
             ))}
           </List>
-        </Row>
-        <Row>
-          <li>
-            <Link to="/test">test</Link>
-          </li>
         </Row>
       </Container>
     </div>
