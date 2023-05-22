@@ -55,13 +55,44 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: {
+                  'postcss-import': {
+                    addModulesDirectories: ['app'],
+                    resolve: function(id, base) {
+                      return glob.sync(path.join(base, id));
+                    },
+                  },
+                  autoprefixer: { browsers: ['last 2 versions', 'iOS >= 8'] },
+                },
+                minify: true,
+              },
+
+              sourceMap: true,
+            },
+          },
+        ],
         exclude: /node-modules/,
       },
       {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.html$/i,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true, sources: false },
+          },
+        ],
       },
     ],
   },
