@@ -1,0 +1,64 @@
+.Banner {
+  /*margin-top: 200px;*/
+}
+
+.Banner__block {
+  background-color: #22c379;
+  padding: 10px;
+
+  margin-bottom: 50px;
+
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  clip-path: polygon(0 0, 80% 0, 100% 30%, 100% 100%, 0 100%, 0% 50%);
+
+  border-radius: 10px;
+}
+
+.Banner__content {
+  margin: auto 0;
+
+  font-size: 28px;
+  font-weight: 500;
+  padding: 0 15px;
+  color: #ffffff;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Banner__bottom {
+}
+
+.Banner__specItems {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.Banner__specItem {
+  padding: 5px 10px;
+  background-color: #ffffff;
+  color: #202020;
+  border-radius: 2px;
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+
+@media screen and (max-width: 767px) {
+  .Banner__content {
+    font-size: 20px;
+  }
+
+  .Banner__specItem {
+    font-size: 14px;
+  }
+}
